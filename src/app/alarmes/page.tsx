@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactNode } from "react";
+import React from "react";
 import {
   IconButton,
   Box,
@@ -38,7 +38,7 @@ const LinkItems: Array<LinkItemProps> = [
   { name: "Relatórios", icon: TbReportSearch },
 ];
 
-export default function Alarmes({ children }: { children: ReactNode }) {
+export default function Alarmes({ children }: { children: any }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
