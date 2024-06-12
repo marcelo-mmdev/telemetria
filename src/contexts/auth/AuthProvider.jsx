@@ -1,15 +1,13 @@
+"use client";
 import { createContext, useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import { UsuarioLoginDTO } from '../../models/UsuarioLoginDTO'
-// import ApiService from '../../services/ApiService.jsx'
-// import ToastSystem from '../../components/Toast/ToastSystem.jsx'
+import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import ApiService from "@/services/services.ts";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  // const navigate = useNavigate();
+  const router = useRouter();
 
   const [user, setUser] = useState("");
   const [loading, setLoading] = useState(true);
@@ -23,8 +21,11 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const recoveredUser = Cookies.get("sess");
-    if (recoveredUser) {
+    console.log("recovere", recoveredUser);
+    if (recoveredUser || recoveredUser !== undefined) {
       setUser(recoveredUser);
+    } else {
+      router.push("/login");
     }
     setLoading(false);
   }, []);
@@ -32,6 +33,7 @@ export const AuthProvider = ({ children }) => {
   const login = (username, password) => {
     // usuarioLoginDTO.setUsername(login);
     // usuarioLoginDTO.setPassword(senha);
+    console.log("Dentro do login");
 
     ApiService.post("login", { username, password })
       .then((response) => {
@@ -46,7 +48,7 @@ export const AuthProvider = ({ children }) => {
         setUser(`${LoggedUser}`);
         setRecoveryPassword(false);
         setShowToastError(false);
-        navigate("/login");
+        // router.push("/login");
       })
       .catch((error) => {
         console.error(error);
@@ -54,6 +56,7 @@ export const AuthProvider = ({ children }) => {
         setRecoveryPassword(true);
         setShowToastError(true);
         setMensagemToast(error.response.data.mensagem);
+        router.push("/login");
       });
   };
 
@@ -63,7 +66,7 @@ export const AuthProvider = ({ children }) => {
     });
     setUser("");
     logado = false;
-    navigate("/login");
+    router.push("/login");
   };
 
   return (
@@ -79,7 +82,7 @@ export const AuthProvider = ({ children }) => {
             /> */}
       <AuthContext.Provider
         value={{
-          // authenticate: logado,
+          authenticate: logado,
           login,
           user,
           loading,

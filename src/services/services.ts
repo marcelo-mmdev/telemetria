@@ -3,7 +3,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { useEffect } from "react";
 
-let baseURL = "https://api-pdb.nemesys.cloud/api/v1/";
+let baseURL = "https://api-pdb.nemesys.cloud/api/v1";
 
 const ApiService = axios.create({
   withCredentials: true,
@@ -12,7 +12,7 @@ const ApiService = axios.create({
 
 ApiService.interceptors.request.use(
   (config) => {
-    const token = Cookies.get("jwt-token");
+    const token = Cookies.get("sess");
     if (token && config.headers) {
       config.headers.authorization = `Bearer ${token}`;
     }
@@ -28,7 +28,7 @@ ApiService.interceptors.response.use(
   (response) => {
     console.log("response");
 
-    const JWT_TOKEN = Cookies.get("jwt-token");
+    const JWT_TOKEN = Cookies.get("sess");
 
     if (JWT_TOKEN) {
       response.headers.Authorization = `${JWT_TOKEN}`;

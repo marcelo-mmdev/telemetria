@@ -31,6 +31,7 @@ import { TbReportSearch } from "react-icons/tb";
 import { IconType } from "react-icons";
 import { ReactText } from "react";
 import CardTelemetria from "@/components/cardTelemetria";
+import SearchInput from '@/components/searchInput';
 // import Telemetria from "@/components/telemetria";
 
 interface LinkItemProps {
@@ -89,25 +90,7 @@ export default function Telemetria({ children }: { children: ReactNode }) {
           <Text ml="20px" fontSize="30px">
             Telemetria
           </Text>
-          <Input
-            // as={DebounceInput}
-            minLength={4}
-            mr="20px"
-            // debounceTimeout={900}
-            type="text"
-            borderRadius="10px"
-            h="30px"
-            w="20%"
-            bg="#FFFFFF"
-            color="#000"
-            border="1px"
-            borderColor="blue.400"
-            placeholder="Pesquisar"
-            // onChange={({ target }) => {
-
-            //   );
-            // }}
-          />
+          <SearchInput />
         </Box>
         <Box ml="20px">
           <CardTelemetria />
