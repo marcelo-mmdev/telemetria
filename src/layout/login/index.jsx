@@ -12,10 +12,10 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useContext, useState } from "react";
-import { AuthProvider } from "@/contexts/auth/AuthProvider";
+// import { AuthProvider } from "@/contexts/auth/AuthProvider";
 
 export default function Login() {
-  const login = useContext(AuthProvider);
+  // const login = useContext(AuthProvider);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -23,7 +23,7 @@ export default function Login() {
   const handleLogin = (event) => {
     event.preventDefault();
 
-    login(username, password);
+    // login(username, password);
   };
 
   return (
@@ -71,7 +71,7 @@ export default function Login() {
               >
                 <Text color={"blue.400"}>OBS: Login e Password do Nemesys</Text>
               </Stack>
-              <Link href={"/"}>
+              <Link href={"/relatorios"}>
                 <Button
                   // onClick={handleLogin}
                   bg={"blue.400"}
