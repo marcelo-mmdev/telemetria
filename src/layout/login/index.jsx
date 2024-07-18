@@ -71,7 +71,7 @@ export default function Login() {
               >
                 <Text color={"blue.400"}>OBS: Login e Password do Nemesys</Text>
               </Stack>
-              <Link href={"/relatorios"}>
+              <Link href={"/telemetria"}>
                 <Button
                   // onClick={handleLogin}
                   bg={"blue.400"}
