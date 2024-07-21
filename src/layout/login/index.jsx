@@ -14,17 +14,41 @@ import Link from "next/link";
 import { useContext, useState } from "react";
 // import { AuthProvider } from "@/contexts/auth/AuthProvider";
 
+// import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { SyntheticEvent } from "react";
+
 export default function Login() {
   // const login = useContext(AuthProvider);
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  // const handleLogin = (event) => {
+  //   event.preventDefault();
+  //   login(username, password);
+  // };
 
-  const handleLogin = (event) => {
-    event.preventDefault();
 
-    // login(username, password);
-  };
+  // const [username, setUsername] = useState<string>('')
+  // const [password, setPassword] = useState<string>('')
+
+  // const router = useRouter()
+
+  // async function handleSubmit(event: SyntheticEvent) {
+  //   event.preventDefault()
+
+  //   const result = await signIn('credentials', {
+  //     username,
+  //     password,
+  //     redirect: false
+  //   })
+
+  //   if (result?.error) {
+  //     console.log(result)
+  //     return
+  //   }
+
+  //   router.replace('/telemetria')
+  // }
 
   return (
     <Flex

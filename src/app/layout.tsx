@@ -19,9 +19,7 @@ export default function RootLayout({
     <html lang="pt-br">
       <body className={inter.className}>
         <ChakraProvider>
-          {/* <AuthProvider> */}
             {children}
-            {/* </AuthProvider> */}
         </ChakraProvider>
       </body>
     </html>
