@@ -1,4 +1,4 @@
-// File: /home/marcelo/Documentos/GitHub/telemetria/src/app/layout.tsx
+// File: C:\Users\MAM\Documents\GitHub\telemetria\src\app\layout.tsx
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
